@@ -115,23 +115,23 @@ test('This function should take in three numbers and return those numbers in an 
 });
 
 test('This function should take in three numbers and return those numbers mushed together as a string', (expect) => {
-    const expected = '3,4,5';
+    const expected = '345';
 
     const actual = returnAsAString(3, 4, 5);
 
-    expect.equal(actual, expected, '3, 4, 5 mushed together as a string is "3,4,5"');
+    expect.equal(actual, expected, '3, 4, 5 mushed together as a string is "345"');
 
-    const expected2 = '8,8,8';
+    const expected2 = '888';
 
     const actual2 = returnAsAString(8, 8, 8);
 
-    expect.equal(actual2, expected2, '8, 8, 8 mushed together as a string is "8,8,8"');
+    expect.equal(actual2, expected2, '8, 8, 8 mushed together as a string is "888"');
 
-    const expected3 = '0,9,0';
+    const expected3 = '090';
 
     const actual3 = returnAsAString(0, 9, 0);
 
-    expect.equal(actual3, expected3, '0, 9, 0 mushed together as a string is "0,9,0"');
+    expect.equal(actual3, expected3, '0, 9, 0 mushed together as a string is "090"');
 });
 
 test('This function should take in two numbers and return a greeting announcing that the sum of those numbers is todays lucky number', (expect) => {
