@@ -1,6 +1,6 @@
 // IMPORT MODULES under test here:
 import { 
-    addExclamationPoints, multiplyBySeven, multiplyBy12ThenHalve, divideThenMultiply, returnAsAnArray, returnAsAString, makeLuckyGreeting, getSecondItem, getLastItem, 
+    addExclamationPoints, multiplyBySeven, multiplyBy12ThenHalve, divideThenMultiply, returnAsAnArray, returnAsAString, makeLuckyGreeting, getSecondItem, getLastItem, getRandomNumber, 
 } from '../functions.js';
 
 const { test, skip } = QUnit;
@@ -119,19 +119,19 @@ test('This function should take in three numbers and return those numbers mushed
 
     const actual = returnAsAString(3, 4, 5);
 
-    expect.deepEqual(actual, expected, '3, 4, 5 mushed together as a string is "3,4,5"');
+    expect.equal(actual, expected, '3, 4, 5 mushed together as a string is "3,4,5"');
 
     const expected2 = '8,8,8';
 
     const actual2 = returnAsAString(8, 8, 8);
 
-    expect.deepEqual(actual2, expected2, '8, 8, 8 mushed together as a string is "8,8,8"');
+    expect.equal(actual2, expected2, '8, 8, 8 mushed together as a string is "8,8,8"');
 
     const expected3 = '0,9,0';
 
     const actual3 = returnAsAString(0, 9, 0);
 
-    expect.deepEqual(actual3, expected3, '0, 9, 0 mushed together as a string is "0,9,0"');
+    expect.equal(actual3, expected3, '0, 9, 0 mushed together as a string is "0,9,0"');
 });
 
 test('This function should take in two numbers and return a greeting announcing that the sum of those numbers is todays lucky number', (expect) => {
@@ -139,19 +139,19 @@ test('This function should take in two numbers and return a greeting announcing 
 
     const actual = makeLuckyGreeting(2, 3);
 
-    expect.deepEqual(actual, expected, 'returns Hello! Your lucky number for the day is (2 + 3) which equals 5');
+    expect.equal(actual, expected, 'returns Hello! Your lucky number for the day is (2 + 3) which equals 5');
 
     const expected2 = 'Hello! Your lucky number for the day is 8';
 
     const actual2 = makeLuckyGreeting(4, 4);
 
-    expect.deepEqual(actual2, expected2, 'returns Hello! Your lucky number for the day is (4 + 4) which equals 8');
+    expect.equal(actual2, expected2, 'returns Hello! Your lucky number for the day is (4 + 4) which equals 8');
 
     const expected3 = 'Hello! Your lucky number for the day is 100';
 
     const actual3 = makeLuckyGreeting(60, 40);
 
-    expect.deepEqual(actual3, expected3, 'returns Hello! Your lucky number for the day is (40 + 60) which equals 100');
+    expect.equal(actual3, expected3, 'returns Hello! Your lucky number for the day is (40 + 60) which equals 100');
 });
 
 test('This function should take an array and return the second item in the array', (expect) => {
@@ -159,17 +159,45 @@ test('This function should take an array and return the second item in the array
 
     const actual = getSecondItem([4, 5, 6, 8]);
 
-    expect.deepEqual(actual, expected, 'returns 5 since 5 is the second number in the array');
+    expect.equal(actual, expected, 'returns 5 since 5 is the second number in the array');
 
     const expected2 = 10;
 
     const actual2 = getSecondItem([30, 10, 80, 90]);
 
-    expect.deepEqual(actual2, expected2, 'returns 10 since 5 is the second number in the array');
+    expect.equal(actual2, expected2, 'returns 10 since 5 is the second number in the array');
 
     const expected3 = 'walnuts';
 
     const actual3 = getSecondItem(['almonds', 'walnuts', 'hazelnuts', 'macadamia nuts']);
 
-    expect.deepEqual(actual3, expected3, 'returns walnuts since walnuts is the second item in the array');
+    expect.equal(actual3, expected3, 'returns walnuts since walnuts is the second item in the array');
+});
+
+test('This function should take an array and return the LAST item in the array, no matter the arrays length', (expect) => {
+    const expected = 9;
+
+    const actual = getLastItem([3, 6, 8, 9]);
+
+    expect.equal(actual, expected, 'returns 9 since 9 is the last number in array');
+
+    const expected2 = 20;
+
+    const actual2 = getLastItem([0, 50, 70, 90, 40, 20]);
+
+    expect.equal(actual2, expected2, 'returns 20 since 20 is the last number in array');
+
+    const expected3 = 'ferrets';
+
+    const actual3 = getLastItem(['dogs', 'cats', 'hamsters', 'ferrets']);
+
+    expect.equal(actual3, expected3, 'returns ferrets since ferrets is the last item in array');
+});
+
+test('This function should return a random number between 0 and 5', (expect) => {
+    const number = getRandomNumber();
+
+    const actual = number === 0 || number === 1 || number === 2 || number === 3 || number === 4 || number === 5;
+
+    expect.equal(actual, true, 'returns a random number between 0 and 5');
 });
