@@ -97,7 +97,7 @@ Output:
 */
 
 export function returnAsAString(firstNumber, secondNumber, thirdNumber) {
-    return true;
+    return String([firstNumber, secondNumber, thirdNumber]);
 }
 
 // This function should take in two numbers and return a greeting announcing that the sum of those numbers is today's lucky number
@@ -113,7 +113,7 @@ Output:
 */
 
 export function makeLuckyGreeting(firstNumber, secondNumber) {
-    return true;
+    return 'Hello! Your lucky number for the day is ' + String(firstNumber + secondNumber);
 }
 
 // This function should take an array and return the second item in the array
@@ -130,7 +130,7 @@ Output:
 */
 
 export function getSecondItem(array) {
-    return true;
+    return array[1];
 }
 
 // This function should take an array and return the LAST item in the array, no matter the array's length
